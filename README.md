@@ -30,6 +30,7 @@ This project implements a complete machine learning pipeline from scratch to pre
 - **🎯 Gradient Descent**: Efficient optimization with simultaneous parameter updates
 - **🛡️ Data Validation**: Comprehensive CSV parsing with error handling
 - **💾 Model Persistence**: Automatic saving of all model parameters and normalization data
+- **📈 Dataset Expansion**: Optional tool to generate consistent additional training data
 
 ### 🖥️ Training Features
 - **📈 Training Visualization**: Real-time cost function monitoring during training
@@ -69,6 +70,30 @@ This project implements a complete machine learning pipeline from scratch to pre
 4. **No additional dependencies required for core functionality** - uses only Python standard library!
 
 ## 💻 Usage
+
+### Expanding the Training Dataset (Optional)
+
+Before training, you can optionally expand the dataset for improved model accuracy:
+
+1. **Generate extended dataset**:
+   ```bash
+   python3 generate_data2.py
+   ```
+
+2. **What it does**:
+   - Analyzes the original 24 data points from `data.csv`
+   - Generates 100 additional realistic data points
+   - Maintains the correlation pattern from original data
+   - Creates `data/data2.csv` with 124 total points
+   - Uses statistical methods to ensure consistency
+
+3. **Benefits**:
+   - 🎯 **Better Accuracy**: More training data improves predictions
+   - 📊 **Consistent Pattern**: Generated data follows the same trend
+   - 🔬 **Reproducible**: Uses fixed seed for consistent results
+   - ✅ **Realistic Values**: Data stays within realistic price/mileage ranges
+
+**Note**: The training script automatically detects and uses `data2.csv` if available, otherwise falls back to the original `data.csv`.
 
 ### Training the Model
 
@@ -318,10 +343,15 @@ The model is saved as `data/trained_model.json` containing:
 ft_linear_regresion/
 ├── train_model.py           # Main training script
 ├── predict_price.py         # Interactive price prediction calculator
+├── generate_data2.py        # Dataset expansion tool (optional)
 ├── README.md                # Complete project documentation
-└── data/
-    ├── data.csv             # Input training data
-    └── trained_model.json   # Output model parameters
+├── data/
+│   ├── data.csv             # Original training data (24 points)
+│   ├── data2.csv            # Extended training data (124 points, generated)
+│   ├── trained_model.json   # Model trained on original data
+│   └── trained_model2.json  # Model trained on extended data
+└── images/
+    └── sample.png           # Sample visualization
 ```
 
 ## 📋 Requirements
@@ -353,17 +383,25 @@ python3 predict_price.py
 
 ## 🎯 Quick Start
 
-1. **Train the model**:
+1. **(Optional) Expand the dataset for better accuracy**:
+   ```bash
+   python3 generate_data2.py
+   ```
+   This generates 100 additional consistent data points.
+
+2. **Train the model**:
    ```bash
    python3 train_model.py
    ```
+   Automatically uses `data2.csv` if available.
 
-2. **Make predictions**:
+3. **Make predictions**:
    ```bash
    python3 predict_price.py
    ```
+   Uses the best available model automatically.
 
-3. **Enjoy beautiful visualizations** with interactive hover tooltips!
+4. **Enjoy beautiful visualizations** with interactive hover tooltips!
 
 ## 🤝 Contributing
 
