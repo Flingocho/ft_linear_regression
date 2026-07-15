@@ -411,6 +411,7 @@ python3 predict_price.py
 4. Add tests if applicable
 5. Submit a pull request
 
+
 ## 📝 License
 
 This project is part of an educational exercise in machine learning fundamentals.
